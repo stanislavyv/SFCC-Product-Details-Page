@@ -117,7 +117,7 @@
   "paths": {
     "base": "./cartridges/app_storefront_base/"
   },
-  "packageName": "app_storefront_base",
+  "packageName": "feature_product_details",
   "babel": {
     "presets": [
       "env"

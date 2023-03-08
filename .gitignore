@@ -9,7 +9,7 @@ bitbucket-pipelines.yml
 codecept.conf.js
 CONTRIBUTING.md
 ismllinter.config.js
-page=designer-components.md
+page-designer-components.md
 PULL_REQUEST_TEMPLATE.md
 cartridges/app_storefront_base
 cartridges/bm_app_storefront_base
