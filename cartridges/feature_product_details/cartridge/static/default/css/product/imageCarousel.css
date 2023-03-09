@@ -1,0 +1,17 @@
+.hide-bullets {
+  list-style: none;
+}
+
+.thumbnails-wrapper {
+  max-height: 100%;
+  overflow-y: auto;
+  white-space: nowrap;
+}
+
+.carousel-image {
+  cursor: pointer;
+}
+
+.carousel-image.active {
+  border: 2px solid #00a1e0;
+}

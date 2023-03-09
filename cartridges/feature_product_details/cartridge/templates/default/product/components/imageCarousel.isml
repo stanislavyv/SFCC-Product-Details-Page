@@ -1,0 +1,62 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets');
+    assets.addCss('/css/product/imageCarousel.css');
+    assets.addJs('/js/imageCarousel.js');
+</isscript>
+
+<div class="col-12 mb-2 px-0">
+    <div id="pdpCarousel-${product.id}" class="carousel slide" data-interval="0"
+        data-prev="${Resource.msg('button.previous', 'common', null)}"
+        data-next="${Resource.msg('button.next', 'common', null)}">
+        <div class="row">
+            <div class="thumbnails-wrapper col-3 pr-0">
+                <!-- Thumbnails -->
+                <ul class="hide-bullets pl-0">
+                    <isloop items="${product.images['small']}" var="image" status="loopStatus">
+                        <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
+                            class="carousel-image col-md-12 px-0 mb-1 <isif condition=" ${loopStatus.index == 0}">active
+                            </isif>">
+                            <img class="rounded img-fluid w-100" src="${image.url}" alt="${image.alt}" />
+                        </li>
+                    </isloop>
+                </ul>
+            </div>
+            <div class="col-9">
+                <div class="col-12">
+                    <!-- Main image -->
+                    <div class="row">
+                        <div class="col-12 px-0">
+                            <div class="carousel slide">
+                                <!-- Carousel items -->
+                                <div class="carousel-inner" role="listbox">
+                                    <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                                        <div data-slide-number="${loopStatus.index}" class="carousel-item <isif
+                                            condition=" ${loopStatus.index == 0}">active</isif>" >
+                                            <img src="${image.url}" class="d-block img-fluid"
+                                                alt="${image.alt} image number ${image.index}" loading="lazy"
+                                                itemprop="image" />
+                                        </div>
+                                    </isloop>
+                                </div>
+                                <!-- Carousel nav -->
+                                <isif condition="${product.images['large'].length > 1}">
+                                    <a class="carousel-control-prev" href="${" #"}pdpCarousel-${product.id}"
+                                        role="button" data-slide="prev">
+                                        <span class="fa icon-prev" aria-hidden="true"></span>
+                                        <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="${" #"}pdpCarousel-${product.id}"
+                                        role="button" data-slide="next">
+                                        <span class="fa icon-next" aria-hidden="true"></span>
+                                        <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
+                                    </a>
+                                </isif>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

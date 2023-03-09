@@ -6,12 +6,20 @@
     </isscript>
 
     <isset name="product" value="${pdict.product}" scope="page" />
+    <isset name="isQuickView" value="${false}" scope="page" />
     <isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
     <isobject object="${product.raw}" view="detail">
-        <div class="container" data-pid="${product.id}">
+        <div class="container-fluid px-3 px-md-4" data-pid="${product.id}">
             <!--Breadcrumbs-->
             <div class="product-breadcrumb">
                 <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-12 col-md-7">
+                    <!-- Product Images Carousel -->
+                    <isinclude template="product/components/imageCarousel" />
+                </div>
             </div>
         </div>
     </isobject>
