@@ -1,0 +1,20 @@
+<ul class="list-unstyled mb-0" data-attr="${attr.id}">
+    <isloop items="${attr.values}" var="currValue">
+        <isif condition="${!(isBundle && product.productType === 'variant' && !currValue.selected)}">
+            <li class="d-inline-block">
+                <isset name="isDisabled" value="${product.productType === "variant" && isBundle}" scope="page" />
+                
+                <button class="size-attribute color-attribute rounded mb-1" data-url="${currValue.url}"
+                    ${isDisabled ? "disabled" : ""} aria-disabled="${isDisabled}">
+                    <span data-attr-value="${currValue.value}"
+                        class="${attr.id}-value swatch-circle swatch-value rounded py-1 px-3 d-inline-block text-white ${currValue.selected ? 'selected' : ''} ${currValue.selectable ? 'selectable' : 'unselectable'}">${currValue.displayValue}
+                    </span>
+
+                    <span id="${currValue.id}" class="sr-only selected-assistive-text">
+                        ${currValue.selected ? Resource.msg('msg.assistive.selected.text', 'common', null) : ''}
+                    </span>
+                </button>
+            </li>
+        </isif>
+    </isloop>
+</ul>

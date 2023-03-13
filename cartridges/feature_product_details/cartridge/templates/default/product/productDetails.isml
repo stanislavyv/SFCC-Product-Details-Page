@@ -8,17 +8,101 @@
     <isset name="product" value="${pdict.product}" scope="page" />
     <isset name="isQuickView" value="${false}" scope="page" />
     <isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
+    <isset name="isBundle" value="${false}" scope="page" />
+
     <isobject object="${product.raw}" view="detail">
-        <div class="container-fluid px-3 px-md-4" data-pid="${product.id}">
+        <div class="container-fluid product-detail product-wrapper px-3 px-md-4" data-pid="${product.id}">
             <!--Breadcrumbs-->
             <div class="product-breadcrumb">
                 <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
             </div>
 
-            <div class="row mt-2">
-                <div class="col-12 col-md-7">
+            <div class="row mt-2 justify-items-between">
+                <div class="col-12 col-md-7 mb-2 mb-md-0">
                     <!-- Product Images Carousel -->
                     <isinclude template="product/components/imageCarousel" />
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="product-name text-center text-md-left">${product.productName}</h1>
+                        </div>
+
+                        <!-- Product Price -->
+                        <div class="col-12 mb-1">
+                            <isset name="price" value="${product.price}" scope="page" />
+                            <isinclude template="product/components/pricing/main" />
+                        </div>
+
+                        <!-- Product Rating -->
+                        <div class="ratings col-12">
+                            <span class="sr-only">${Resource.msgf('label.product.ratings', 'common', null, product.rating)}</span>
+                            <isinclude template="product/components/productRating" />
+                        </div>
+
+                        <hr class="col-11 px-0 my-3" />
+
+                        <!-- Product Short Description -->
+                        <div class="col-12">
+                            <span class="js-product-description">
+                                <isprint value="${product.shortDescription}" encoding="on" />
+                            </span>
+
+                            <isif condition="${product.shortDescription.length > 80}">
+                                &nbsp;
+                                <span
+                                    class="btn btn-link text-primary p-0 js-toggle-description">${Resource.msg("toggle.button.text", "product", null)}</span>
+                            </isif>
+                        </div>
+
+                        <!-- Size Attribute -->
+                        <isloop items="${product.variationAttributes}" var="attr">
+                            <isif condition="${attr.id == 'size'}">
+                                <hr class="col-11 px-0 my-3" />
+
+                                <div class="col-12 mb-1">
+                                    <div class="row mb-1">
+                                        <h5 class="col font-weight-bold">${Resource.msg("label.size", "product", null)}
+                                        </h5>
+
+                                        <!-- Size Chart -->
+                                        <isif condition="${product.variationAttributes && product.sizeChartId}">
+                                            <div class="col text-right">
+                                                <isinclude template="product/components/sizeChart" />
+                                            </div>
+                                        </isif>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mb-1 overflow-hidden">
+                                    <isinclude template="product/components/sizeAttribute" />
+                                </div>
+                            </isif>
+                        </isloop>
+
+                        <hr class="col-11 px-0 my-3" />
+
+                        <!-- Quantity Attribute -->
+                        <div class="col-12 mb-1">
+                            <div class="row">
+                                <h5 class="col font-weight-bold mb-0">${Resource.msg("label.quantity", "product", null)}
+                                </h5>
+
+                                <isinclude template="product/components/quantityAttribute" />
+                            </div>
+                        </div>
+
+                        <hr class="col-11 px-0 my-3" />
+
+                        <!-- Add to Cart -->
+                        <div class="col-12 mb-1">
+                            <isinclude template="product/components/addToCartProduct" />
+
+                            <!-- Custom Asset - Special Offers -->
+                            <isprint value="${pdict.specialOffers}" encoding="off" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

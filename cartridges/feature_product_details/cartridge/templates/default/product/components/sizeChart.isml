@@ -1,0 +1,3 @@
+<a href="${URLUtils.url('Product-SizeChart', 'cid', product.sizeChartId)}"
+    class="text-primary">${Resource.msg('link.size_chart', 'product', null)}</a>
+<div class="size-chart-collapsible"></div>

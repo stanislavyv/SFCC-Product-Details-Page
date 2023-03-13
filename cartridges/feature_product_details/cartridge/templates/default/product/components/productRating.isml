@@ -1,0 +1,18 @@
+<div class="d-flex">
+    <div class="mr-3">
+        <isloop items="${[1, 2, 3, 4, 5]}" var="star">
+            <i aria-hidden="true" class="text-primary fa
+                <isif condition="${product.rating >= star}">
+                    fa-star
+                <iselseif condition="${(product.rating % 1 > 0) && (Math.ceil(product.rating) >= star)}">
+                    fa-star-half-o
+                <iselse>
+                    fa-star-o
+                </isif>
+                ">
+            </i>
+        </isloop>
+    </div>
+
+    <p class="text-primary mb-0"><isprint value="${product.rating}" encoding="html" /></p>
+</div>

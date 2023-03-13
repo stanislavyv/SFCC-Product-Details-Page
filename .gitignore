@@ -17,6 +17,7 @@ cartridges/sfcc_dev_tools
 cartridges/modules
 test
 notes.txt
+cartridges/**/static
 
 node_modules/
 cartridges/app_storefront_base/cartridge/static/default/css/
