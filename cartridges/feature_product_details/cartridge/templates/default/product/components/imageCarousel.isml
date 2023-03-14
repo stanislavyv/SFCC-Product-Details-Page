@@ -2,19 +2,24 @@
     <div id="pdpCarousel-${product.id}" class="carousel slide" data-interval="0"
         data-prev="${Resource.msg('button.previous', 'common', null)}"
         data-next="${Resource.msg('button.next', 'common', null)}">
-        <div class="row">
-            <div class="thumbnails-wrapper col-3 pr-0">
+        <isset name="isOnlyOneImage" value="${product.images['small'].length == 1}" scope="page" />
+
+        <div class="row ${isOnlyOneImage ? 'justify-content-center' : ''}">
+            <isif condition="${!isOnlyOneImage}">
                 <!-- Thumbnails -->
-                <ul class="hide-bullets pl-0">
-                    <isloop items="${product.images['small']}" var="image" status="loopStatus">
-                        <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
-                            class="carousel-image col-md-12 px-0 mb-1 <isif condition=" ${loopStatus.index == 0}">active
+                <div class="thumbnails-wrapper col-3 pr-0">
+                    <ul class="hide-bullets pl-0">
+                        <isloop items="${product.images['small']}" var="image" status="loopStatus">
+                            <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
+                                class="carousel-image col-md-12 px-0 mb-1 <isif condition=${loopStatus.index == 0}>active
                             </isif>">
-                            <img class="rounded img-fluid w-100" src="${image.url}" alt="${image.alt}" />
-                        </li>
-                    </isloop>
-                </ul>
-            </div>
+                                <img class="rounded img-fluid w-100" src="${image.url}" alt="${image.alt}" />
+                            </li>
+                        </isloop>
+                    </ul>
+                </div>
+            </isif>
+
             <div class="col-9">
                 <div class="col-12">
                     <!-- Main image -->

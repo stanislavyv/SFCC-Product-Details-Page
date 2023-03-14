@@ -1,0 +1,80 @@
+<isset name="isQuickView" value="${false}" scope="page" />
+<isset name="isProductSet" value="${false}" scope="page" />
+
+<isobject object="${product.raw}" view="detail">
+    <!-- Main Section -->
+    <div class="container-fluid product-detail product-wrapper px-3 px-md-4" data-pid="${product.id}">
+        <div class="row mt-2 justify-items-between">
+            <div class="col-12 col-md-7 mb-2 mb-md-0">
+                <!-- Product Images Carousel -->
+                <isinclude template="product/components/imageCarousel" />
+            </div>
+
+            <div class="col-12 col-md-4 mb-2">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="product-name text-center text-md-left">${product.productName}</h1>
+                    </div>
+
+                    <!-- Product Price -->
+                    <div class="col-12 mb-1">
+                        <isset name="price" value="${product.price}" scope="page" />
+                        <isinclude template="product/components/pricing/main" />
+                    </div>
+
+                    <!-- Product Rating -->
+                    <div class="ratings col-12">
+                        <span class="sr-only">${Resource.msgf('label.product.ratings', 'common', null, product.rating)}</span>
+                        <isinclude template="product/components/productRating" />
+                    </div>
+
+                    <hr class="col-11 px-0 my-3" />
+
+                    <isif condition="${product.shortDescription}">
+                        <!-- Product Short Description -->
+                        <div class="col-12">
+                            <span class="js-product-short-description">
+                                <isprint value="${product.shortDescription}" encoding="off" />
+                            </span>
+
+                            <isif condition="${product.shortDescription.length > 80}">
+                                &nbsp;
+                                <span class="btn btn-link text-primary p-0">${Resource.msg("label.view.details", "product", null)}</span>
+                            </isif>
+                        </div>
+                    </isif>
+
+                    <hr class="col-11 px-0 my-3" />
+
+                    <!-- Quantity -->
+                    <div class="col-12 mb-1">
+                        <div class="row">
+                            <h5 class="col font-weight-bold mb-0">${Resource.msg("label.quantity", "product", null)}
+                            </h5>
+
+                            <div class="col">
+                                <isloop items="${product.quantities}" var="quantity" status="loopStatus">
+                                    <isif condition="${quantity.selected}">
+
+                                        <div class="quantity-select d-flex justify-content-end">
+                                            <span class="selected px-2 text-center" value="${quantity.value}"
+                                                data-url="${quantity.url}">
+                                                <isprint value="${product.selectedQuantity.toString()}" encoding="on" />
+                                            </span>
+                                        </div>
+                                    </isif>
+                                </isloop>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="col-11 px-0 my-3" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <hr class="col-11 px-0 my-3" />
+        </div>
+    </div>
+</isobject>

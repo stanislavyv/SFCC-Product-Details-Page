@@ -1,26 +1,26 @@
-<isif condition="${product.productType !== 'bundle'}">
-    <div class="col">
-        <isloop items="${product.quantities}" var="quantity" status="loopStatus">
-            <isif condition="${quantity.selected}">
+<div class="col">
+    <isloop items="${product.quantities}" var="quantity" status="loopStatus">
+        <isif condition="${quantity.selected}">
 
-                <div class="quantity-select d-flex justify-content-end">
-                    <isset name="prev" value="${product.quantities[loopStatus.index - 1]}" scope="page" />
-                    <isset name="next" value="${product.quantities[loopStatus.index + 1]}" scope="page" />
+            <div class="quantity-select d-flex justify-content-end">
+                <isset name="prev" value="${product.quantities[loopStatus.index - 1]}" scope="page" />
+                <isset name="next" value="${product.quantities[loopStatus.index + 1]}" scope="page" />
 
-                    <isset name="hasPrev" value="${prev != null}" scope="page" />
-                    <isset name="hasNext" value="${next != null}" scope="page" />
+                <isset name="hasPrev" value="${prev != null}" scope="page" />
+                <isset name="hasNext" value="${next != null}" scope="page" />
 
-                    <button class="btn rounded-circle border quantity-btn" data-url="${hasPrev ? prev.url : ''}"
-                        value="${hasPrev ? prev.value : ''}" ${!hasPrev ? 'disabled' : ''}><i
-                            class="text-primary text-center fa fa-minus"></i></button>
-                    <span class="selected px-2 text-center" value="${quantity.value}" data-url="${quantity.url}">
-                        <isprint value="${product.selectedQuantity.toString()}" encoding="on" />
-                    </span>
-                    <button class="btn rounded-circle border quantity-btn" data-url="${hasNext ? next.url : ''}"
-                        value="${hasNext ? next.value : ''}" ${!hasNext ? 'disabled' : ''}><i
-                            class="text-primary text-center fa fa-plus"></i></button>
-                </div>
-            </isif>
-        </isloop>
-    </div>
-</isif>
+                <button class="btn rounded-circle border quantity-btn" data-url="${hasPrev ? prev.url : ''}"
+                    value="${hasPrev ? prev.value : ''}" ${!hasPrev ? 'disabled' : ''}><i
+                        class="text-primary text-center fa fa-minus"></i></button>
+
+                <span class="selected px-2 text-center" value="${quantity.value}" data-url="${quantity.url}">
+                    <isprint value="${product.selectedQuantity.toString()}" encoding="on" />
+                </span>
+
+                <button class="btn rounded-circle border quantity-btn" data-url="${hasNext ? next.url : ''}"
+                    value="${hasNext ? next.value : ''}" ${!hasNext ? 'disabled' : ''}><i
+                        class="text-primary text-center fa fa-plus"></i></button>
+            </div>
+        </isif>
+    </isloop>
+</div>
