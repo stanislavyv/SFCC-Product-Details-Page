@@ -201,6 +201,15 @@ label.availability {
     }
 }
 
+// Extend
+
+// Add styling for ul to remove default spacing when rendering html from 
+// content asset or custom attribute (system object types)
+ul {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
 .size-attribute {
     background-color: $secondary;
 
@@ -224,4 +233,10 @@ label.availability {
 
 .quantity-btn {
     padding: 1px 6px;
+}
+
+.button-heading {
+    font-family: var(--skin-header-font), sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
 }

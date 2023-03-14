@@ -1,4 +1,5 @@
 "use strict";
+// Override the whole file so that ./base points to the file in this cartridge
 const base = require("./base");
 
 const DOTS = "...";
@@ -12,8 +13,9 @@ function updateAddToCartEnableDisableOtherElements(enableOrDisable) {
     $("button.add-to-cart-global").attr("disabled", enableOrDisable);
 }
 
+// Extend
 /**
- * Shortens a product's description to its first 50 characters
+ * Shortens a product's short description to its first 80 characters
  * @param {JQuery} $currDescription
  */
 function shortenDescription($currDescription) {
@@ -25,8 +27,9 @@ function shortenDescription($currDescription) {
     }
 }
 
+// Extend
 /**
- * Shows full/ partial product description
+ * Shows full/ partial product short description
  * @param {JQuery} $currDescription
  * @param {JQuery} $button
  */
@@ -44,11 +47,12 @@ function toggleDescription($currDescription, $button) {
     }
 }
 
+// Extend
 /**
- * Adds event listeners to product description elements
+ * Adds event listeners to product short description elements
  */
-function addDescriptionListeners() {
-    const $allDescriptions = $(".js-product-description");
+function addShortDescriptionListeners() {
+    const $allDescriptions = $(".js-product-short-description");
 
     if ($allDescriptions.length > 0) {
         $allDescriptions.each(function (i, currDescription) {
@@ -67,6 +71,60 @@ function addDescriptionListeners() {
             );
         });
     }
+}
+
+// Extend
+/**
+ * Shows/ Hides content on button click
+ * @param {JQuery} $content 
+ * @param {JQuery} $button 
+ */
+function toggleTextContent($content, $button) {
+    const $icon = $button.find('.fa');
+
+    if ($content.hasClass('d-none')) {
+        $content.removeClass('d-none');
+
+        $icon.removeClass('fa-plus')
+        $icon.addClass('fa-minus')
+        
+        $button.addClass('text-primary');
+    } else {
+        $content.addClass('d-none');
+
+        $icon.removeClass('fa-minus')
+        $icon.addClass('fa-plus')
+
+        $button.removeClass('text-primary');
+    }
+}
+
+
+// Extend
+/**
+ * Add listeners for product long description and delivery sections
+ */
+function addLongDescriptionAndDeliveryListeners() {    
+    let $allProductContainers = $(document).find(".set-item");
+    if (!$allProductContainers.length) {
+        $allProductContainers = $(document).find(".product-detail");
+    }
+
+    $allProductContainers.each(function (i, currProductContainer) {
+        const $currProductContainer = $(currProductContainer);
+
+        const $buttons = $currProductContainer.find('.js-toggle-content-btn');
+
+        $buttons.each(function (i, currButton) {
+            const $currButton = $(currButton);
+            const $currContent = $currButton.parent().next('.js-toggle-content');
+
+            $currButton.on(
+                "click",
+                toggleTextContent.bind(null, $currContent, $currButton)
+            );
+        })
+    });
 }
 
 module.exports = {
@@ -252,9 +310,11 @@ module.exports = {
 
     focusChooseBonusProductModal: base.focusChooseBonusProductModal(),
 
+    // Extend
     colorAttribute: base.colorAttribute,
     selectSize: base.selectSize,
     selectQuantity: base.selectQuantity,
 
-    addDescriptionListeners,
+    addShortDescriptionListeners,
+    addLongDescriptionAndDeliveryListeners,
 };

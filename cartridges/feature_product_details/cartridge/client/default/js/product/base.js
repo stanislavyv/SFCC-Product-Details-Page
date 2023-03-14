@@ -1,6 +1,8 @@
 "use strict";
 var focusHelper = require("base/components/focus");
 
+// Override the whole file to modify non-exported functions
+
 /**
  * Retrieves the relevant pid value
  * @param {jquery} $el - DOM container for a given add to cart button
@@ -23,6 +25,7 @@ function getPidValue($el) {
     return pid;
 }
 
+// Override
 /**
  * Retrieve contextual quantity selector
  * @param {jquery} $el - DOM container for the relevant quantity
@@ -53,6 +56,7 @@ function getQuantitySelector($el) {
     return quantitySelected;
 }
 
+// Override
 /**
  * Retrieves the value associated with the Quantity pull-down menu
  * @param {jquery} $el - DOM container for the relevant quantity
@@ -144,6 +148,7 @@ function processNonSwatchValues(attr, $productContainer) {
     });
 }
 
+// Override
 /**
  * Routes the handling of attribute processing depending on whether the attribute has image
  *     swatches or not
@@ -154,6 +159,7 @@ function processNonSwatchValues(attr, $productContainer) {
  * @param {Object} msgs - object containing resource messages
  */
 function updateAttrs(attrs, $productContainer, msgs) {
+    // Add size attribute
     var attrsWithSwatches = ["color", "size"];
 
     attrs.forEach(function (attr) {
@@ -334,6 +340,7 @@ function handleVariantResponse(response, $productContainer) {
  *     etc.
  */
 
+// Override
 /**
  * Updates the quantity DOM elements post Ajax call
  * @param {UpdatedQuantity[]} quantities -
@@ -689,6 +696,7 @@ module.exports = {
         });
     },
 
+    // Extend
     selectSize: function () {
         $(document).on("click", '[data-attr="size"] button', function (e) {
             e.preventDefault();
@@ -721,6 +729,7 @@ module.exports = {
         );
     },
 
+    // Extend
     selectQuantity: function () {
         const $quantityButtons = $(".quantity-btn");
 

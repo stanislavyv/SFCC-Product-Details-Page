@@ -11,6 +11,7 @@
     <isset name="isBundle" value="${false}" scope="page" />
 
     <isobject object="${product.raw}" view="detail">
+        <!-- Main Section -->
         <div class="container-fluid product-detail product-wrapper px-3 px-md-4" data-pid="${product.id}">
             <!--Breadcrumbs-->
             <div class="product-breadcrumb">
@@ -23,7 +24,7 @@
                     <isinclude template="product/components/imageCarousel" />
                 </div>
 
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-4 mb-2">
                     <div class="row">
                         <div class="col-12">
                             <h1 class="product-name text-center text-md-left">${product.productName}</h1>
@@ -45,14 +46,13 @@
 
                         <!-- Product Short Description -->
                         <div class="col-12">
-                            <span class="js-product-description">
+                            <span class="js-product-short-description">
                                 <isprint value="${product.shortDescription}" encoding="on" />
                             </span>
 
                             <isif condition="${product.shortDescription.length > 80}">
                                 &nbsp;
-                                <span
-                                    class="btn btn-link text-primary p-0 js-toggle-description">${Resource.msg("toggle.button.text", "product", null)}</span>
+                                <span class="btn btn-link text-primary p-0">${Resource.msg("label.view.details", "product", null)}</span>
                             </isif>
                         </div>
 
@@ -105,6 +105,18 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <hr class="col-11 px-0 my-3" />
+            </div>
+
+            <!-- Long Description and Delivery -->
+            <isinclude template="product/components/descriptionAndDelivery" />
+            
+            <div class="row">
+                <hr class="col-11 px-0 my-3" />
+            </div>
+
         </div>
     </isobject>
 </isdecorate>
