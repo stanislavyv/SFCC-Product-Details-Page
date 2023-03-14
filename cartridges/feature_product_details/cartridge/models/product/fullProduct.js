@@ -93,8 +93,9 @@ module.exports = function fullProduct(product, apiProduct, options) {
     decorators.raw(product, apiProduct);
     decorators.pageMetaData(product, apiProduct);
     decorators.template(product, apiProduct);
-    // Add delivery info
+    // Add custom
     decorators.deliveryInfo(product, apiProduct);
+    decorators.recommendations(product, apiProduct);
 
     return product;
 };

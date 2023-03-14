@@ -1,0 +1,27 @@
+<div class="container text-center my-3">
+    <div class="row mx-auto my-auto">
+        <div id="featuredCarousel" class="featured-carousel carousel slide w-100">
+            <h3 class="mb-0 w-100">${Resource.msg("label.featured.products.carousel.title", "common", null)}</h3>
+            <div class="carousel-inner w-100 d-flex align-self-stretch" role="listbox">
+                <isloop items="${product.recommendations}" var="recommendation" status="loopStatus">
+                    <div class="carousel-item <isif condition=${loopStatus.count === 1}>active</isif>">
+                        <div class="col-md-4">
+                            <div class="card card-body border-0">
+                                <isinclude
+                                    url="${URLUtils.url('Tile-Show', 'pid', recommendation.recommendedItem.ID, 'swatches', false)}" />
+                            </div>
+                        </div>
+                    </div>
+                </isloop>
+            </div>
+            <a class="arrow-prev carousel-control-prev w-auto" href="#featuredCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
+            </a>
+            <a class="arrow-next carousel-control-next w-auto" href="#featuredCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
+            </a>
+        </div>
+    </div>
+</div>

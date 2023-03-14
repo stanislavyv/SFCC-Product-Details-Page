@@ -47,7 +47,7 @@
                         <!-- Product Short Description -->
                         <div class="col-12">
                             <span class="js-product-short-description">
-                                <isprint value="${product.shortDescription}" encoding="on" />
+                                <isprint value="${product.shortDescription}" encoding="off" />
                             </span>
 
                             <isif condition="${product.shortDescription.length > 80}">
@@ -117,6 +117,10 @@
                 <hr class="col-11 px-0 my-3" />
             </div>
 
+            <!-- Recommended Products Carousel -->
+            <div class="recommendations row">
+                <isinclude template="product/components/featuredProductsCarousel" />
+            </div>
         </div>
     </isobject>
 </isdecorate>

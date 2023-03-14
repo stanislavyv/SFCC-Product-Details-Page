@@ -5,6 +5,9 @@
 @import "base/utilities/_responsiveUtils";
 @import "base/utilities/_swatch";
 
+//Extend
+@import "./carousel";
+
 .product-detail .attributes .swatch-circle {
     // $white will be replaced by color image background in ISML
     @include swatch(2.5em, $white);
