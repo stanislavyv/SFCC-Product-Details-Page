@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="Product">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="deliveryInfo">
+                <display-name xml:lang="x-default">Delivery Info</display-name>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>true</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+
+        <group-definitions>
+            <attribute-group group-id="delivery">
+                <display-name xml:lang="x-default">Delivery</display-name>
+                <attribute attribute-id="deliveryInfo" />
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+</metadata>

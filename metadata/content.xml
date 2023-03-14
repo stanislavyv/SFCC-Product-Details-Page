@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.demandware.com/xml/impex/library/2006-10-31"
+  library-id="RefArchSharedLibrary">
+  <content content-id="special-offers">
+    <display-name xml:lang="x-default">Special Offers</display-name>
+    <description xml:lang="x-default">A list of offers shown under the add-to-cart button</description>
+    <online-flag>true</online-flag>
+    <searchable-flag>true</searchable-flag>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;h6 class=&quot;font-weight-bold
+        mb-1&quot;&gt;&lt;i class=&quot;fa fa-tag mr-1&quot;&gt;&lt;/i&gt;Special Offers
+        Available&lt;/h6&gt;&#13;&lt;ul class=&quot;list-unstyled mb-0 px-0&quot;&gt;&#13;
+        &lt;li&gt;&#13; &lt;p class=&quot;m-0&quot;&gt;Free gift when you spend $50+&lt;/p&gt;&#13;
+        &lt;button class=&quot;m-0 btn btn-link text-primary p-0&quot;&gt;See
+        Details&lt;/button&gt;&#13; &lt;/li&gt;&#13;&lt;/ul&gt;</custom-attribute>
+    </custom-attributes>
+    <folder-links>
+    </folder-links>
+  </content>
+</library>
