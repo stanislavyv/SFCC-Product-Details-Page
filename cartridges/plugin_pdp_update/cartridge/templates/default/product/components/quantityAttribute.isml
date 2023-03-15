@@ -9,7 +9,7 @@
                 <isset name="hasPrev" value="${prev != null}" scope="page" />
                 <isset name="hasNext" value="${next != null}" scope="page" />
 
-                <button class="btn rounded-circle border quantity-btn" data-url="${hasPrev ? prev.url : ''}"
+                <button class="btn rounded-circle border quantity-btn js-quantity-btn" data-url="${hasPrev ? prev.url : ''}"
                     value="${hasPrev ? prev.value : ''}" ${!hasPrev ? 'disabled' : ''}><i
                         class="text-primary text-center fa fa-minus"></i></button>
 
@@ -17,7 +17,7 @@
                     <isprint value="${product.selectedQuantity.toString()}" encoding="on" />
                 </span>
 
-                <button class="btn rounded-circle border quantity-btn" data-url="${hasNext ? next.url : ''}"
+                <button class="btn rounded-circle border quantity-btn js-quantity-btn" data-url="${hasNext ? next.url : ''}"
                     value="${hasNext ? next.value : ''}" ${!hasNext ? 'disabled' : ''}><i
                         class="text-primary text-center fa fa-plus"></i></button>
             </div>

@@ -2,12 +2,12 @@
  * Adds functionality to recommended products carousel
  */
 function addRecommendationCarousel() {
-    const $allCarousels = $(".featured-carousel");
+    const $allCarousels = $(".js-featured-carousel");
 
     $allCarousels.each(function (i, currCarousel) {
         const $currCarousel = $(currCarousel);
 
-        $currCarousel.find(".carousel-item").each(function () {
+        $currCarousel.find(".js-carousel-item").each(function () {
             let minPerSlide = 3;
             let next = $(this).next();
             if (!next.length) {
@@ -31,7 +31,7 @@ function addRecommendationCarousel() {
  */
 function setThumbnailActive() {
     $("[id^=pdpCarousel-]").each(function (i, currCarousel) {
-        const $allImages = $(currCarousel).find(".carousel-image");
+        const $allImages = $(currCarousel).find(".js-carousel-image");
 
         $allImages.each(function (j, currImage) {
             $(currImage).on("click", function () {

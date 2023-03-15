@@ -7,11 +7,11 @@
         <div class="row ${isOnlyOneImage ? 'justify-content-center' : ''}">
             <isif condition="${!isOnlyOneImage}">
                 <!-- Thumbnails -->
-                <div class="thumbnails-wrapper col-3 pr-0">
+                <div class="thumbnails-wrapper col-3 pr-0 mh-100">
                     <ul class="hide-bullets pl-0">
                         <isloop items="${product.images['small']}" var="image" status="loopStatus">
                             <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
-                                class="carousel-image col-md-12 px-0 mb-1 <isif condition=${loopStatus.index == 0}>active
+                                class="carousel-image js-carousel-image col-md-12 px-0 mb-1 <isif condition=${loopStatus.index == 0}>active
                             </isif>">
                                 <img class="rounded img-fluid w-100" src="${image.url}" alt="${image.alt}" />
                             </li>

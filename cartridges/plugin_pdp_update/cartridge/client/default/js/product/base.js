@@ -704,9 +704,9 @@ module.exports = {
             if ($(this).attr("disabled")) {
                 return;
             }
-            var $productContainer = $(this).closest(".set-item");
+            var $productContainer = $(this).closest(".js-set-item");
             if (!$productContainer.length) {
-                $productContainer = $(this).closest(".product-detail");
+                $productContainer = $(this).closest(".js-product-detail");
             }
 
             attributeSelect($(this).attr("data-url"), $productContainer);
@@ -731,14 +731,14 @@ module.exports = {
 
     // Extend
     selectQuantity: function () {
-        const $quantityButtons = $(".quantity-btn");
+        const $quantityButtons = $(".js-quantity-btn");
 
         $quantityButtons.each(function (i, button) {
             const $button = $(button);
 
-            let $productContainer = $button.closest(".set-item");
+            let $productContainer = $button.closest(".js-set-item");
             if (!$productContainer.length) {
-                $productContainer = $button.closest(".product-detail");
+                $productContainer = $button.closest(".js-product-detail");
             }
 
             $button.on("click", function () {

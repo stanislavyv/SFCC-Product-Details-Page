@@ -3,7 +3,7 @@
         <div class="row justify-content-between mb-1">
             <div class="col-12 col-md-3">
                 <div class="button-heading js-toggle-content-btn btn-link text-left font-weight-bold">
-                    <i class="fa fa-plus mr-1 text-secondary"></i>
+                    <i class="js-fa fa fa-plus mr-1 text-secondary"></i>
                     ${Resource.msg("label.product.details", "product", null)}
                 </div>
             </div>
@@ -16,7 +16,7 @@
             <div class="row justify-content-between">
                 <div class="col-12 col-md-3">
                     <div class="button-heading js-toggle-content-btn btn-link text-left font-weight-bold">
-                        <i class="fa fa-plus mr-1 text-secondary"></i>
+                        <i class="js-fa fa fa-plus mr-1 text-secondary"></i>
                         ${Resource.msg("label.delivery", "product", null)}
                     </div>
                 </div>

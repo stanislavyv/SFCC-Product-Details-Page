@@ -16,7 +16,7 @@
     <isset name="product" value="${pdict.product}" scope="page" />
     <isobject object="${product.raw}" view="detail" />
 
-    <div class="container product-detail" data-pid="${product.id}">
+    <div class="container product-detail js-product-detail" data-pid="${product.id}">
         <div class="row">
             <div class="col-12">
                 <!---Breadcrumbs--->
@@ -73,7 +73,7 @@
                     <!-- Cart -->
                     <isinclude template="product/components/addToCartProduct" />
                     <div class="text-center text-md-left">
-                        <isprint value="${pdict.specialOffers}" encoding="off" />
+                        <iscontentasset aid="special-offers" />
                     </div>
                 </div>
 

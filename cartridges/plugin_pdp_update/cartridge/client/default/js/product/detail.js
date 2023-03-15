@@ -80,7 +80,7 @@ function addShortDescriptionListeners() {
  * @param {JQuery} $button 
  */
 function toggleTextContent($content, $button) {
-    const $icon = $button.find('.fa');
+    const $icon = $button.find('.js-fa');
 
     if ($content.hasClass('d-none')) {
         $content.removeClass('d-none');
@@ -105,9 +105,9 @@ function toggleTextContent($content, $button) {
  * Add listeners for product long description and delivery sections
  */
 function addLongDescriptionAndDeliveryListeners() {    
-    let $allProductContainers = $(document).find(".set-item");
+    let $allProductContainers = $(".js-set-item");
     if (!$allProductContainers.length) {
-        $allProductContainers = $(document).find(".product-detail");
+        $allProductContainers = $(".js-product-detail");
     }
 
     $allProductContainers.each(function (i, currProductContainer) {
